@@ -41,3 +41,6 @@ img{
     transform: scale(0.70);
     transition: 2s;
 }
+.memory-card.flip{
+    transform: rotateY(180deg);
+}
