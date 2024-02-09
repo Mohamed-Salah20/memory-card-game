@@ -24,11 +24,18 @@ img{
     grid-column-gap: 15px;
     justify-content: center;
     /* align-items: center; */
+
+    /* adding depth */
+    perspective: 1000px;
 }
 .memory-card {
     position: relative;
     width: 150px;
-    height: 200px; 
+    height: 200px;
+    
+    /* adding depth */
+    transform-style: preserve-3d;
+    transition: transform.5s;
 }
   
   .front-face, .back-face {
@@ -43,4 +50,5 @@ img{
 }
 .memory-card.flip{
     transform: rotateY(180deg);
+
 }
