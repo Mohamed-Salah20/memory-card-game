@@ -38,6 +38,6 @@ img{
     
 }
 .memory-card:active{
-    transform: scale(0.95);
-    transition: 2s;
+    transform: scale(0.90);
+    transition: 3s;
 }
