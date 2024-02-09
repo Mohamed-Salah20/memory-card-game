@@ -7,7 +7,6 @@
      of elements. When set to border-box, the width and height properties include
     the padding and border, but not the margin. */
 }
-
 body{
     height: 100%;
     background-color:coral;
@@ -25,7 +24,7 @@ img{
     justify-content: center;
     /* align-items: center; */
 
-    /* adding depth */
+    /* adding depth for flipping */
     perspective: 1000px;
 }
 .memory-card {
@@ -33,22 +32,27 @@ img{
     width: 150px;
     height: 200px;
     
-    /* adding depth */
+    /* adding depth for flipping */
     transform-style: preserve-3d;
     transition: transform.5s;
-}
-  
-  .front-face, .back-face {
+} 
+.front-face, .back-face {
     position: absolute;
     width: 100%;
     height: 100%;
-    
+
+    /* for flipping */
+    backface-visibility: hidden;
 }
+
 .memory-card:active{
     transform: scale(0.70);
     transition: 2s;
 }
 .memory-card.flip{
     transform: rotateY(180deg);
-
+}
+.front-face{
+    /* for flippping */
+    transform: rotateY(180deg);
 }
