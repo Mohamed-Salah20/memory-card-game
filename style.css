@@ -1,0 +1,43 @@
+/* universal selector that targets all elements on the webpage */
+*{ 
+    padding: 0%;
+    margin:0%;
+    box-sizing: border-box;
+    /* This property changes the box model used to calculate the width and height
+     of elements. When set to border-box, the width and height properties include
+    the padding and border, but not the margin. */
+}
+
+body{
+    height: 100%;
+    background-color:coral;
+}
+img{
+    /* width:10%;
+    height:10%; */
+}
+.container{
+    
+    display: grid;
+    grid-template-columns: 155px 155px 155px 155px;
+    grid-row-gap: 5px;
+    grid-column-gap: 15px;
+    justify-content: center;
+    /* align-items: center; */
+}
+.memory-card {
+    position: relative;
+    width: 150px;
+    height: 200px; 
+}
+  
+  .front-face, .back-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+}
+.memory-card:active{
+    transform: scale(0.95);
+    transition: 1s;
+}
