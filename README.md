@@ -43,4 +43,4 @@ Below is an overview of the main functions in the code:
 
 
 ## Deployment
-I deployed the game using Github Actions and you can play it on the provided url: (https://mohamed-salah20.github.io/memory-card-game/)  
+I deployed the game using Github Actions and you can play it on the provided url: [Memory Game](https://mohamed-salah20.github.io/memory-card-game/)  
