@@ -1,12 +1,19 @@
 var cards = document.querySelectorAll('.memory-card');
 
-shuffleCards();//
 
+//sufflled cards on refresh
+shuffleCards();
 function shuffleCards() {
     cards.forEach(function(card) {
         card.style.order = Math.floor(Math.random() * cards.length) + 1;
     });
 }
+
+
+//add listner to cards elements
+cards.forEach(function(card){
+    card.addEventListener('click',flipCard);
+});
 
 var isFlippedCardFirst = false;
 var firstCard;
@@ -18,14 +25,14 @@ function flipCard(){
     console.log('flipping function');
     if (lockBoard) return;
     if (this === firstCard) return;
-
+    
     this.classList.add('flip');
     if(!isFlippedCardFirst) //In case there is no card flipped
     {//first click
-
+        
         isFlippedCardFirst = true;
         firstCard = this; //now i have the div of the first card clicked
-
+        
         console.log(isFlippedCardFirst,firstCard);
     }else{//second click
         
@@ -77,7 +84,27 @@ function resetCardsValues(){
     secondCard = null;
 }
 
-//add listner to cards elements
-cards.forEach(function(card){
-    card.addEventListener('click',flipCard);
-});
+
+
+//////////replay button part/////////////////
+
+var button = document.getElementsByTagName('button')[0]; //button.addEventListener is not a function error
+                                                        //occured because getElementsByTagName returns a collection of elements rather than a single element. sol.: get the first element [0]
+//add listner to replay button
+button.addEventListener('click', buttonFun); 
+
+//replay button functionality is to shuffle and flip all cards
+function buttonFun(){
+    cards.forEach(function(card){
+        card.classList.add('flip');
+    });
+
+    setTimeout(function(){cards.forEach(function(card){
+        card.classList.remove('flip');
+    });},350);
+    
+    resetCardsValues();
+    shuffleCards();
+}
+
+
