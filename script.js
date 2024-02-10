@@ -31,9 +31,11 @@ function flipCard(){
             firstCard.removeEventListener('click',flipCard);
             secondCard.removeEventListener('click',flipCard);
         }else{ //not matching
-            
-            firstCard.classList.remove('flip');
-            secondCard.classList.remove('flip');
+            setTimeout(function (){ //to prevent removing flip class of second card too early
+                //removing flip class from both cards
+                firstCard.classList.remove('flip');
+                secondCard.classList.remove('flip');
+            },500);
         }
     }
 
