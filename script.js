@@ -1,6 +1,12 @@
 var cards = document.querySelectorAll('.memory-card');
 
+shuffleCards();
 
+function shuffleCards() {
+    cards.forEach(function(card) {
+        card.style.order = Math.floor(Math.random() * cards.length) + 1;
+    });
+}
 
 var isFlippedCardFirst = false;
 var firstCard;
