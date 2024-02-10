@@ -11,7 +11,8 @@ var lockBoard = false;
 function flipCard(){
     console.log('flipping function');
     if (lockBoard) return;
-
+    if(this === firstCard) return; // handle double click on same card issue
+    
     this.classList.add('flip');
     if(!isFlippedCardFirst) //In case there is no card flipped
     {//first click
@@ -48,6 +49,8 @@ function disableCards(){
     //prevent them from being clicked again if they match by removing the click event listner
     firstCard.removeEventListener('click',flipCard);
     secondCard.removeEventListener('click',flipCard);
+
+    resetBoard();
 }
 
 function unFlipCards(){
@@ -59,6 +62,15 @@ function unFlipCards(){
 
         lockBoard = false;
     },500);
+
+    resetBoard();
+}
+
+function resetBoard(){
+    isFlippedCardFirst = false;
+    lockBoard = false;
+    firstCard = null;
+    secondCard = null;
 }
 
 //add listner to cards elements
