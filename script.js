@@ -8,6 +8,7 @@ var secondCard;
 
 
 function flipCard(){
+    console.log('flipping function');
     this.classList.add('flip');
     if(!isFlippedCardFirst) //In case there is no card flipped
     {//first click
@@ -22,6 +23,18 @@ function flipCard(){
         secondCard = this; //now i have the div of the second card clicked
     
         console.log(firstCard,secondCard);
+
+        //matching logic
+        if(firstCard.dataset.framework === secondCard.dataset.framework) //do the cards match? *using html data-* attribute*
+        {
+            //prevent them from being clicked again if they match by removing the click event listner
+            firstCard.removeEventListener('click',flipCard);
+            secondCard.removeEventListener('click',flipCard);
+        }else{ //not matching
+            
+            firstCard.classList.remove('flip');
+            secondCard.classList.remove('flip');
+        }
     }
 
 }
