@@ -73,6 +73,7 @@ function checkForMatch(){
     {
         //prevent them from being clicked again if they match by removing the click event listner
         disableCards();
+        incrementFlipppedCards();
     }else{ //not matching
         unFlipCards(); //disable
     }
@@ -127,4 +128,20 @@ function buttonFun(){
     shuffleCards();
 }
 
+/////////////finish game part///////////////
 
+var numFlipppedCards = 0; //counter to know when the game should stop 
+
+function incrementFlipppedCards(){
+    numFlipppedCards += 2; // Increment by 2 as two cards are flipped
+    console.log('numFlipppedCards', numFlipppedCards);
+    checkAllCardsAreFlipped();
+}
+
+function checkAllCardsAreFlipped() {
+    if (numFlipppedCards === cards.length) {
+        // All cards are flipped
+        console.log('All cards are flipped!');
+        resetCardsValues();
+    }
+}
