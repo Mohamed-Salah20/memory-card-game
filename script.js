@@ -1,6 +1,6 @@
+
+
 var cards = document.querySelectorAll('.memory-card');
-
-
 //sufflled cards on refresh
 shuffleCards();
 function shuffleCards() {
@@ -8,6 +8,7 @@ function shuffleCards() {
         card.style.order = Math.floor(Math.random() * cards.length) + 1;
     });
 }
+resetBoard();
 
 
 
@@ -112,10 +113,10 @@ function resetCardsValues(){
 var button = document.getElementsByTagName('button')[0]; //button.addEventListener is not a function error
                                                         //occured because getElementsByTagName returns a collection of elements rather than a single element. sol.: get the first element [0]
 //add listner to replay button
-button.addEventListener('click', buttonFun); 
+button.addEventListener('click', resetBoard); 
 
 //replay button functionality is to shuffle and flip all cards
-function buttonFun(){
+function resetBoard(){
     cards.forEach(function(card){
         card.classList.add('flip');
     }); //made it for a beautiful flipping effect, not actually required for button logic
@@ -142,6 +143,28 @@ function checkAllCardsAreFlipped() {
     if (numFlipppedCards === cards.length) {
         // All cards are flipped
         console.log('All cards are flipped!');
-        resetCardsValues();
+        showCongratulationsModal();
+    }
+}
+
+function showCongratulationsModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        /**after closing the modal, the event triggering the flipCard function is not working.*/
+        //problem: event listeners are not reattached after closing the modal.
+        //solved by using: 
+        cards.forEach(function(card){
+            card.addEventListener('click',flipCard);
+        });        
     }
 }
