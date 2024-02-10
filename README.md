@@ -9,3 +9,6 @@ This project implements a simple memory card game where cards can be flipped and
 - Check for matching pairs
 - Disable further interactions while cards are being flipped
 - Reset the game to allow for replay
+
+## Deployment
+I deployed the game using Github Actions and you can play it on the provided url: (https://mohamed-salah20.github.io/memory-card-game/)  
