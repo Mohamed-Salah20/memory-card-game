@@ -19,6 +19,7 @@ This project implements a simple memory card game where cards can be flipped and
 6. **Replay Button:** Resets the game to allow for replay, through flipping all cards and shuffiling them.
 
 ## Deployment
+
 I deployed the game using Github Actions and you can try it on the provided url: [Memory Game](https://mohamed-salah20.github.io/memory-card-game/)
 ----------------------------------------------------------------------------
 Below is an overview of the main functions in the code:
@@ -41,3 +42,7 @@ Below is an overview of the main functions in the code:
   1. `incrementFlipppedCards()`
   2. `checkAllCardsAreFlipped()`
   3. `showCongratulationsModal()`
+  
+
+
+  
