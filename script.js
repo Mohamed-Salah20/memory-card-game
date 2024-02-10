@@ -117,7 +117,7 @@ button.addEventListener('click', buttonFun);
 function buttonFun(){
     cards.forEach(function(card){
         card.classList.add('flip');
-    });
+    }); //made it for a beautiful flipping effect, not actually required for button logic
 
     setTimeout(function(){cards.forEach(function(card){
         card.classList.remove('flip');
