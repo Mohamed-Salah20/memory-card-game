@@ -10,16 +10,36 @@ function shuffleCards() {
 }
 
 
+
+////////////main concept of flipping cards////////////////
+/**contains 5 functions & 4 main variables
+ * 1- flipCard()
+ * //the code starts with this function which is invoked from the Event Listener when a card is clicked
+ * //it adds a 'flip' class to the clicked card to visually flip it.
+ * //it checks which cards are being clicked & handles them appropriately
+ * //if two different cards are clicked it invokes checkMatch() function
+ * //the function was bulky so it got refactored to the other 4 functions
+ * 2-checkForMatch()
+ * // checks if the dataset values of the html data-* attribute of the two flipped cards are the same
+ * 3-disableCards()
+ * //removes the event listener for click events from both cards, preventing further clicks on these cards.
+ * 4-unFlipCards()
+ * //removes the 'flip' class from both cards
+ * 5-resetCardsValues()
+ * //resets all card-related variables and unlocks the board for further interactions.
+ */
+
 //add listner to cards elements
 cards.forEach(function(card){
     card.addEventListener('click',flipCard);
 });
 
+
 var isFlippedCardFirst = false;
 var firstCard;
 var secondCard;
 
-var lockBoard = false;
+var lockBoard = false; //prevent further interactions with the cards while prevent users from clicking on other cards while the currently flipped cards are being unflipped. 
 
 function flipCard(){
     console.log('flipping function');
@@ -86,7 +106,7 @@ function resetCardsValues(){
 
 
 
-//////////replay button part/////////////////
+//////////////replay button part/////////////////
 
 var button = document.getElementsByTagName('button')[0]; //button.addEventListener is not a function error
                                                         //occured because getElementsByTagName returns a collection of elements rather than a single element. sol.: get the first element [0]
