@@ -47,7 +47,7 @@ img{
 
 .memory-card:active{
     transform: scale(0.70);
-    transition: 2s;
+    transition: transform 2s; /* Corrected transition property */
 }
 .memory-card.flip{
     transform: rotateY(180deg);
