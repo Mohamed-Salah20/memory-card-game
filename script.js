@@ -6,9 +6,12 @@ var isFlippedCardFirst = false;
 var firstCard;
 var secondCard;
 
+var lockBoard = false;
 
 function flipCard(){
     console.log('flipping function');
+    if (lockBoard) return;
+
     this.classList.add('flip');
     if(!isFlippedCardFirst) //In case there is no card flipped
     {//first click
@@ -48,12 +51,16 @@ function disableCards(){
 }
 
 function unFlipCards(){
+    lockBoard = true;
     setTimeout(function (){ //to prevent removing flip class of second card too early
         //removing flip class from both cards
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
+
+        lockBoard = false;
     },500);
 }
+
 //add listner to cards elements
 cards.forEach(function(card){
     card.addEventListener('click',flipCard);
