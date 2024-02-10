@@ -12,7 +12,7 @@ function shuffleCards() {
 
 
 ////////////main concept of flipping cards////////////////
-/**contains 5 functions & 4 main variables
+/**contains 5 functions & 4 main variables & 1 Event Listner
  * 1- flipCard()
  * //the code starts with this function which is invoked from the Event Listener when a card is clicked
  * //it adds a 'flip' class to the clicked card to visually flip it.
