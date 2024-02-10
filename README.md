@@ -21,6 +21,7 @@ This project implements a simple memory card game where cards can be flipped and
 ## Deployment
 
 I deployed the game using Github Actions and you can try it on the provided url: [Memory Game](https://mohamed-salah20.github.io/memory-card-game/)
+
 ----------------------------------------------------------------------------
 Below is an overview of the main functions in the code:
 #### Flipping Cards
