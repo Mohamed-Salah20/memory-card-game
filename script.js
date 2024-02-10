@@ -1,6 +1,6 @@
 var cards = document.querySelectorAll('.memory-card');
 
-shuffleCards();
+shuffleCards();//
 
 function shuffleCards() {
     cards.forEach(function(card) {
